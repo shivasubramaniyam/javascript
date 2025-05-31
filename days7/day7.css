@@ -1,0 +1,19 @@
+#box {
+    height: 150px;
+    width: 100px;
+    background-color: dodgerblue;
+    color: white;
+    border: 2px solid black  ;
+    justify-content: center;
+
+    }
+
+
+.content {
+    color: red;
+
+}
+
+.newClass{
+    background-color: green;
+}

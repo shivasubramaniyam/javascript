@@ -1,0 +1,23 @@
+/* h1 {
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: maroon;
+    background-color: yellow;
+}
+
+body {
+    background-color:  pink;
+}
+button{
+    color: white;
+    background-color: blue;} */
+
+
+.box{
+    height : 100px;
+    width: 80px;
+    border: 1px solid black;
+    margin: 5px;
+    text-align: center;
+    background-color: aquamarine;
+}
