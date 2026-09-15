@@ -15,20 +15,19 @@
 
 // }
 
-// // myFuntion1("i love the process");
+// myFuntion1("i love the process");
 
-// function sum(a,b){
-//     //local variables -> scope
-//     s = a + b;
-//     console.log("before return");
-// console.log(a);
+// function sum(a, b) {
+//   //local variables -> scope
+//   s = a + b;
+//   console.log("before return");
+//   console.log(a);
 
-//     return s;
-//     console.log("after return");
-
+//   return s;
+//   console.log("after return");
 // }
 
-// let val = sum (12,23);
+// let val = sum(12, 23);
 
 // console.log(val);
 
@@ -51,40 +50,48 @@
 //     console.log("hello");
 // };
 
-// function countVowels(str){
-//     let count = 0;
-//     for(const char of str){
-//     if (char ==='a' || char==='e' || char==='i' || char==='o' || char==='u') {
-//         count++;
+// function countVowels(str) {
+//   let count = 0;
+//   for (const char of str) {
+//     if (
+//       char === "a" ||
+//       char === "e" ||
+//       char === "i" ||
+//       char === "o" ||
+//       char === "u"
+//     ) {
+//       count++;
 //     }
-// }
-// return count;
+//   }
+//   return count;
 // }
 
 // console.log(countVowels("shiva subramaniyam s"));
 
 // const vowels = (str) => {
-//     let count = 0 ;
-//     for (const char of str) {
-//       if (
-//         char === "a" ||
-//         char === "e" ||
-//         char === "i" ||
-//         char === "o" ||
-//         char === "u"
-//       ) {
-//         count++;
-//       }
+//   let count = 0;
+//   for (const char of str) {
+//     if (
+//       char === "a" ||
+//       char === "e" ||
+//       char === "i" ||
+//       char === "o" ||
+//       char === "u"
+//     ) {
+//       count++;
 //     }
-//     return count;
+//   }
+//   return count;
 // };
+
+// console.log(vowels("shiva subramaniyam s"));
 
 //for-array is specialy used for the array
 //it is a method
 
 // for each example with the callback function
 
-// let arr = ["bangalore", "chennai", "hydrabad"];
+let arr = ["bangalore", "chennai", "hydrabad"];
 
 // arr.forEach((val, idx, array) => {
 //   // each value at each index
@@ -92,8 +99,8 @@
 // });
 
 // //Higher order function / method
-// /* in the above example the parameter for the 
-// for each function is another arrow function 
+// /* in the above example the parameter for the
+// for each function is another arrow function
 // hence it is called as higher order funcrtion*/
 
 // let arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -112,8 +119,7 @@
 
 // arr2.forEach(calcSqaure);
 
-// // array map function works the same as foreach but it can stoer
-// // in the new array
+// array map function works the same as foreach but it can store in the new array
 
 // let num = [62, 72];
 
@@ -154,8 +160,7 @@
 // let n = prompt("enter the number : ");
 
 // let arr6 = [];
-// for (let i = 1; i <= n; i++)
-//      arr6[i - 1] = i;
+// for (let i = 1; i <= 5; i++) arr6[i - 1] = i;
 
 // console.log(arr6);
 
