@@ -27,6 +27,31 @@
 //   console.log(a);
 // }
 
+// Hoisted behaviour
+// temporal Death zone
+
+// console.log(x);
+// var x = 10;  // function scoped
+// console.log(y); // let/const is in the temporal dead zone, but var is not in TDZ
+// let y = 10; // block scoped
+
+// Re-assignment
+
+// var age = 10;
+// var age = 20; //redeclaration will work in var
+
+// let age = 10;
+// let age = 20; //redeclaration will not work in let and const
+// age = 25; //reassigning will works
+
+// interview question
+// for (var i = 0; i < 3; i++) {
+//   setTimeout(() => console.log(i), 100);
+// }
+// for (let i = 0; i < 3; i++) {
+//   setTimeout(() => console.log(i), 100);
+// }
+
 // {
 //   let a = 10;
 //   console.log(a);
