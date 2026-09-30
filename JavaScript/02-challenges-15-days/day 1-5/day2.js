@@ -27,14 +27,12 @@
 // console.log("a", a);
 // console.log("--a", --a);
 
-
 //assignment operator
-
 
 // let a = 5;
 // let b = 2;
 
-// a%= 4; 
+// a %= 4;
 
 // console.log(a);
 
@@ -43,20 +41,18 @@
 // let a = 5;
 // let b = "5";
 
-
-// console.log("a == b",a==b); //the javascript convert the number in the string automatically..
-// console.log("a===b",a===b); // this case helps to check the datatype in both a and b which is strict compared to the "==" sign..
+// console.log("a == b", a == b); //the javascript convert the number in the string automatically..
+// console.log("a===b", a === b); // this case helps to check the datatype in both a and b which is strict compared to the "==" sign..
 
 // logical operator
 
 // let a = 6;
 // let b = 5;
 
-// let cond1 = a>b;
-// let cond2 = a===5;
+// let cond1 = a > b;
+// let cond2 = a === 5;
 
-// console.log("cond1 && cond2",!(cond1 && cond2));
-
+// console.log("cond1 && cond2", !(cond1 && cond2));
 
 //Conditional statement
 
@@ -67,7 +63,6 @@
 // if (age < 18) {
 //   console.log("you cannot apply for voter ID ");
 // }
-
 
 // let mode = "dark";
 // let color;
@@ -83,20 +78,16 @@
 
 // console.log(color);
 
-
-
 //ternary operator
 // let age = 23;
 // let cage = age >18 ?console.log( "adult") : console.log("not adult");
 
-
-// alert("Hello")
+// alert("Hello");
 // let num = prompt("Enter the number");
 
 // let result = num % 5 == 0
 //   ? "Number is multiple of 5"
 // : "Number is not a multiple of 5";
-
 
 // console.log(result);
 
