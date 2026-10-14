@@ -8,3 +8,22 @@ const moreThanTwo = nums1.filter((num) => {
 });
 
 console.log(moreThanTwo);
+
+//polyfil for the filter()
+
+Array.prototype.myFilter = function (cb) {
+  let temp = [];
+  for (let i = 0; i < this.length; i++) {
+    if (cb(this[i], i, this)) temp.push(this[i]);
+  }
+
+  return temp;
+};
+
+const nums5 = [1, 2, 3, 4];
+
+const moreThanTwo2 = nums5.myFilter((num) => {
+  return num > 2;
+});
+
+console.log(moreThanTwo2);
