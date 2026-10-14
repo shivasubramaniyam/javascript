@@ -64,7 +64,7 @@ function twoSum(input2, target2) {
 let input2 = [2, 7, 11, 15];
 const target2 = 9;
 
-console.log(twoSum(input2, target2));
+// console.log(twoSum(input2, target2));
 
 //2 sum --> medium level problem sorted array
 /** approach : consider the code where i and j to be in the end
@@ -85,4 +85,22 @@ console.log(twoSum(input2, target2));
  */
 
 let input3 = [2, 7, 11, 15];
-const target3 = 9;
+const target3 = 13;
+
+function SortedTwoSum(input3, target3) {
+  let i = 0,
+    j = input3.length - 1;
+  while (i < j) {
+    if (input3[i] + input3[j] > target3) {
+      j--;
+    } else if (input3[i] + input3[j] > target3) {
+      i++;
+    }
+
+    if (input3[i] + input3[j] === target3) {
+      return { i, j };
+    }
+  }
+}
+
+console.log(SortedTwoSum(input3, target3));
