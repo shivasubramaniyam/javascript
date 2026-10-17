@@ -1,6 +1,6 @@
 /**input = [-1, 0, 1, 2, -1, -4, 0, 2];
 target = 0;
-output : {{-4,2,2},{-1,-1,2,{-1,0,1}}}
+output : {{-4,2,2},{-1,-1,2},{-1,0,1}}}
 
 
 approach : check for the triplet which result in the target = 0
@@ -71,3 +71,13 @@ function ThreeSumProblem(input, target = 0) {
 }
 
 console.log(ThreeSumProblem(input, target));
+
+/**3 sum extended
+ * input = [-1,2,1,4] target = 1
+ *
+ * lets take -1+2+1 = 2, where 2 is closest to target 1
+ * lets take -1+1+4 = 4, where 4 is not closest to target 1
+ *
+ * approach : if the index is not returned as the output, lets sort the array so that we can do a 2sum like previous question
+ * use 3 indices i,j,k and move k first then j then i
+ * */

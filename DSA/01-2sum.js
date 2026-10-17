@@ -70,7 +70,7 @@ const target2 = 9;
 /** approach : consider the code where i and j to be in the end
  * i = 0, j = 3
  * add the 2 number if the target matches, return the resulted index
- * if the result is greater then left shift the j index and check the same condition
+ * if the result is greater than target then left shift the j index and check the same condition
  * else right shift the i idx
  *
  * 1 based index returns the {i+1, j+1}
