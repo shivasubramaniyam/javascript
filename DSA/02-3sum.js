@@ -70,7 +70,7 @@ function ThreeSumProblem(input, target = 0) {
   return result;
 }
 
-console.log(ThreeSumProblem(input, target));
+// console.log(ThreeSumProblem(input, target));
 
 /**3 sum extended
  * input = [-1,2,1,4] target = 1
@@ -79,5 +79,91 @@ console.log(ThreeSumProblem(input, target));
  * lets take -1+1+4 = 4, where 4 is not closest to target 1
  *
  * approach : if the index is not returned as the output, lets sort the array so that we can do a 2sum like previous question
- * use 3 indices i,j,k and move k first then j then i
+ * use 3 indices i,j,k and move k first then j then i => o(n3)
+ *
+ * let's use the 3 sum concept
  * */
+
+function ThreeSumclosest(arr, target) {
+  //obtain the length
+  const n = arr.length;
+
+  if (n < 3) {
+    return [];
+  }
+
+  const sortedArray = arr.toSorted((a, b) => a - b);
+  // console.log(sortedArray);
+
+  //global closest value
+  let closestValue = sortedArray[0] + sortedArray[1] + sortedArray[2];
+
+  //apply 2 sum logic
+  function TwoSum(a, remainingTarget, left, right, k) {
+    while (left < right) {
+      const sum = a[left] + a[right] + a[k];
+      if (Math.abs(target - sum) < Math.abs(target - closestValue)) {
+        closestValue = sum;
+      }
+      // Exact match found: distance cannot be less than 0
+      if (sum === target) {
+        return sum;
+      }
+      if (sum > remainingTarget) {
+        right--;
+      } else {
+        left++;
+      }
+    }
+  }
+
+  for (let k = 0; k < n - 3; k++) {
+    let i = k + 1;
+    let j = n - 1;
+
+    TwoSum(sortedArray, target, i, j, k);
+  }
+  return closestValue;
+}
+
+// Test Case 1: Standard case with mixed positive/negative numbers
+const arr1 = [-1, 2, 1, -4];
+const target1 = 1;
+console.log(ThreeSumclosest(arr1, target1));
+// Expected Output: 2
+// Explanation: The sum that is closest to target is 2 (-1 + 2 + 1 = 2).
+
+// Test Case 2: Exact target match exists
+const arr2 = [0, 0, 0];
+const target2 = 1;
+console.log(ThreeSumclosest(arr2, target2));
+// Expected Output: 0
+// Explanation: The only triplet sum is 0 (0 + 0 + 0 = 0).
+
+// Test Case 3: Target matches an exact triplet
+const arr3 = [1, 1, 1, 0];
+const target3 = -100;
+console.log(ThreeSumclosest(arr3, target3));
+// Expected Output: 2
+// Explanation: The smallest possible triplet sum is 2 (0 + 1 + 1 = 2).
+
+// Test Case 4: Target is larger than any possible sum
+const arr4 = [1, 2, 3, 4, 5];
+const target4 = 100;
+console.log(ThreeSumclosest(arr4, target4));
+// Expected Output: 12
+// Explanation: The maximum triplet sum is 12 (3 + 4 + 5 = 12).
+
+// Test Case 5: All negative numbers
+const arr5 = [-5, -4, -3, -2, -1];
+const target5 = -10;
+console.log(ThreeSumclosest(arr5, target5));
+// Expected Output: -10
+// Explanation: Triplet (-5 + -4 + -1 = -10) matches the target exactly.
+
+// Test Case 6: Duplicate numbers
+const arr6 = [4, 0, 5, -5, 3, 3, 0, -4, -5];
+const target6 = -2;
+console.log(ThreeSumclosest(arr6, target6));
+// Expected Output: -2
+// Explanation: Triplet (-5 + 0 + 3 = -2) matches the target exactly.
