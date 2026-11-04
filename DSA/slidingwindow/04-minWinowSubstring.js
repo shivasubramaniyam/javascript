@@ -15,34 +15,66 @@
  *
  * while shifting i, if the map is value is present
  * need to increment map to 1 and count by 1
+ * leetcode - hard - sliding window
+
  */
 
-function MinimumWindowSubstring(s, t) {
-  const n_s = s.length;
-  const t_s = t.length;
-  let count_req = t_s;
+function minWindow(s, t) {
+  const n = s.length;
+  const tl = t.length;
 
-  const counter = Array(26).fill(0);
-  const aCode = "a".charCodeAt(0);
+  if (tl > n || n === 0) return "";
+  // Size 128 covers standard ASCII (both uppercase and lowercase letters)
+  const map = Array(128).fill(0);
 
-  for (let i = 0; i < t_s; i++) {
-    ch = t[i];
-    counter[ch.charCodeAt(0) - aCode]++;
+  //   we have stored the pat t in the map fn
+  for (let i = 0; i < tl; i++) {
+    map[t.charCodeAt(i)]++;
   }
 
-  while (j < n_s) {
-    if (s[j] === counter[j.charCodeAt - aCode]) {
-      counter[j.charCodeAt(0)]--;
-      count_req--;
-      j++;
-    } else {
+  let requiredCount = tl;
+  let i = 0,
+    j = 0;
+
+  let minWindowSize = Infinity;
+  let start_i = 0;
+
+  //   logic begins
+  while (j < n) {
+    let codeJ = s.charCodeAt(j);
+    // If s[j] is still needed for t, decrement requiredCount
+    if (map[codeJ] > 0) requiredCount--;
+
+    map[codeJ]--;
+
+    while (requiredCount === 0) {
+      //start shrinking the window
+      currWindowSize = j - i + 1;
+
+      if (minWindowSize > currWindowSize) {
+        minWindowSize = currWindowSize;
+        start_i = i;
+      }
+      const codeI = s.charCodeAt(i);
+
+      // Remove s[i] from window
+      map[codeI]++;
+
+      if (map[codeI] > 0) {
+        requiredCount++;
+      }
+      i++;
     }
+    j++;
   }
-
-  return counter;
+  return minWindowSize === Infinity
+    ? ""
+    : s.substring(start_i, start_i + minWindowSize);
 }
 
-const s = ["a", "d", "o", "b", "e", "c", "o", "d", "e", "b", "a", "n", "c"],
-  t = ["a", "b", "c"];
+// const s = ["a", "d", "o", "b", "e", "c", "o", "d", "e", "b", "a", "n", "c"],
+// t = ["a", "b", "c"]
+s = "adobecodebanc";
+t = "abc";
 
-console.log(MinimumWindowSubstring(s, t));
+console.log(minWindow(s, t));
