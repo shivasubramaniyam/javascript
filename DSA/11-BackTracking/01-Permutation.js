@@ -45,3 +45,40 @@ function permute(nums) {
 }
 
 console.log(permute([1, 2, 3]));
+
+/** approach 2
+ * instead of having the used tree and current path
+ * we are going to the divide into the fixed right path and left path in the code
+ * from 0 to start-1 (fixed left part) and unxplored right part(start to n-1)
+ *
+ *
+ *
+ */
+
+function permuteSwap(nums) {
+  const result = [];
+  const n = nums.length;
+  function backtrack(start) {
+    //1. base case : all position up to the end are fixed
+    if (start === n) {
+      result.push([...nums]);
+      return;
+    }
+
+    //2. try placing every remaining element (from start to end) at index start
+    for (let i = start; i < n; i++) {
+      // Choose: Swap nums[start] with nums[i]
+      [nums[start], nums[i]] = [nums[i], nums[start]];
+
+      // Explore: Fix the next position (start + 1)
+      backtrack(start + 1);
+
+      // Un-choose (Backtrack): Swap back to restore original order
+      [nums[start], nums[i]] = [nums[i], nums[start]];
+    }
+  }
+  backtrack(0);
+  return result;
+}
+
+console.log(permuteSwap([1, 2, 3]));
